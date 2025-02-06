@@ -16,9 +16,11 @@ class MybatisDemoApplicationTests {
     @Test
     void contextLoads() {
     }
+
     @Autowired
     TeacherMapper teacherMapper;
     private StudentMapper studentMapper;
+
 
 
     //测试mybatis
@@ -29,11 +31,13 @@ class MybatisDemoApplicationTests {
             System.out.println(teacher);
         }
     }
+
     @Test
-    public void testInsert(){
+    public void testInsert() {
         int i = teacherMapper.addTeacher();
-        System.out.println(i>0?"修改成功":"修改失败");
+        System.out.println(i > 0 ? "修改成功" : "修改失败");
     }
+
     @Test
     public void testUpdateLocations() {
         int rows = teacherMapper.update();
@@ -48,13 +52,59 @@ class MybatisDemoApplicationTests {
 
 
     @Test
-    public void testGetStudentAll(){
+    public void testGetStudentAll() {
         List<Student> studentAll = studentMapper.getStudentAll();
-        for (Student student:studentAll){
+        for (Student student : studentAll) {
             System.out.println(student);
         }
 
 
+    }
+
+    @Test
+    public void testInsertStudent() {
+        int i = studentMapper.insertStudent();
+        System.out.println(i > 0 ? "插入成功" : "插入失败");
+    }
+
+    @Test
+    public void testDeleteStudent() {
+        int i = studentMapper.deleteStudent();
+        System.out.println(i > 0 ? "插入成功" : "插入失败");
+    }
+
+    @Test
+    public void testUpdateStudent() {
+        int i = studentMapper.updateStudent();
+        System.out.println(i > 0 ? "插入成功" : "插入失败");
+    }
+    @Test
+    public void testSelectStudentById(){
+        Student studentById = studentMapper.getStudentById(2);
+        System.out.println(studentById);
+
+    }
+    @Test
+    public void testGetListByIds(){
+        List<Student> listByIds = studentMapper.getListByIds(1, 3);
+        for (Student student:listByIds){
+            System.out.println(student);
+        }
+    }
+    @Test
+    public void testAddStudent(){
+        Student student = new Student();
+        student.setId(8888);
+        student.setName("沙和尚");
+        student.setAge(2800);
+        student.setGender("男");
+        student.setJob("搬家大队长");
+        student.setBirth(null);
+        student.setLocationId(0);
+        student.setTeamLeader(0);
+        student.setClassId(0);
+        int rows = studentMapper.addStudent(student);
+        System.out.println(rows > 0 ? "新增成功!" : "新增失败!");
     }
 
 }

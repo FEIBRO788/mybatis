@@ -8,4 +8,50 @@
         SELECT id,name,age,gender,job,birth,location_id,team_leader,class_id
         FROM student
     </select>
+    <insert id="insertStudent" >
+        insert into student values ('7777', '猪八戒', 3000, '男', '分家大队长', NULL, 0, 0, 0)
+    </insert>
+    <delete id="deleteStudent">
+        delete
+        from student
+        where name='猪八戒';
+    </delete>
+    <update id="updateStudent">
+        update student set job='净坛使者'
+        WHERE name = '猪八戒'
+    </update>
+    <select id="getStudentById" resultType="cn.tedu.mybatisdemo.pojo.Student">
+        select id,
+               name,
+               age,
+               gender,
+               job,
+               birth,
+               location_id,
+               team_leader,
+               class_id
+        FROM student
+        where id=#{id}
+    </select>
+    <select id="getListByIds" resultType="cn.tedu.mybatisdemo.pojo.Student">
+        select id,
+               name,
+               age,
+               gender,
+               job,
+               birth,
+               location_id,
+               team_leader,
+               class_id
+        FROM student
+        where id >#{min}
+        and id<#{max}
+    </select>
+    <insert id="addStudent">
+        insert into student values (#{id}, #{name},
+                                    #{age}, #{gender}, #{job}, #{birth}, #{locationId},
+                                    #{teamLeader}, #{classId})
+
+    </insert>
+
 </mapper>
