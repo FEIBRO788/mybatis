@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--这行代码声明了文档类型（DOCTYPE），指定了 MyBatis 映射文件的 DTD（文档类型定义）。DTD 用于验证 XML 文件的结构是否正确。然而，由于网络原因，DTD 文件可能无法正确解析，这通常不会影响到 MyBatis 的正常使用，因为 MyBatis 在运行时并不需要 DTD 文件。-->
+<mapper namespace="cn.tedu.mybatisdemo.Mapper.StudentMapper">
+    <select id="getStudentAll" resultType="cn.tedu.mybatisdemo.pojo.Student">
+        SELECT id,name,age,gender,job,birth,location_id,team_leader,class_id
+        FROM student
+    </select>
+</mapper>
