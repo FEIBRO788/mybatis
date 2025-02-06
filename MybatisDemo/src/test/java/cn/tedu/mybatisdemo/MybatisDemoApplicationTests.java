@@ -19,6 +19,7 @@ class MybatisDemoApplicationTests {
 
     @Autowired
     TeacherMapper teacherMapper;
+    @Autowired
     private StudentMapper studentMapper;
 
 
@@ -70,13 +71,13 @@ class MybatisDemoApplicationTests {
     @Test
     public void testDeleteStudent() {
         int i = studentMapper.deleteStudent();
-        System.out.println(i > 0 ? "插入成功" : "插入失败");
+        System.out.println(i > 0 ? "删除成功" : "删除失败");
     }
 
     @Test
     public void testUpdateStudent() {
         int i = studentMapper.updateStudent();
-        System.out.println(i > 0 ? "插入成功" : "插入失败");
+        System.out.println(i > 0 ? "更新成功" : "更新失败");
     }
     @Test
     public void testSelectStudentById(){

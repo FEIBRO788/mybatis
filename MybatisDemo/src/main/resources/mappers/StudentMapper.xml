@@ -8,8 +8,9 @@
         SELECT id,name,age,gender,job,birth,location_id,team_leader,class_id
         FROM student
     </select>
-    <insert id="insertStudent" >
-        insert into student values ('7777', '猪八戒', 3000, '男', '分家大队长', NULL, 0, 0, 0)
+    <insert id="insertStudent">
+        insert into student (name, age, gender, job, birth, location_id, team_leader, class_id)
+        values ('猪八戒', 3000, '男', '分家大队长', NULL, 0, 0, 0)
     </insert>
     <delete id="deleteStudent">
         delete
@@ -45,7 +46,7 @@
                class_id
         FROM student
         where id >#{min}
-        and id<#{max}
+          AND id &lt; #{max}
     </select>
     <insert id="addStudent">
         insert into student values (#{id}, #{name},
